@@ -1,0 +1,207 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values.
+ *
+ * Brand palette from the selected "Y2K Neat Lawn" direction.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand tokens — Y2K Neat Lawn */
+  --color-cream: var(--cream);
+  --color-cream-soft: var(--cream-soft);
+  --color-moss: var(--moss);
+  --color-pine: var(--pine);
+  --color-lawn: var(--lawn);
+  --color-amber: var(--amber);
+  --color-ink: var(--ink);
+
+  /* Font tokens */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #F3EBD8;
+  --foreground: #182016;
+  --card: #FBF7EC;
+  --card-foreground: #182016;
+  --popover: #FBF7EC;
+  --popover-foreground: #182016;
+  --primary: #6E9E4A;
+  --primary-foreground: #F3EBD8;
+  --secondary: #EFE5CE;
+  --secondary-foreground: #21371F;
+  --muted: #EFE5CE;
+  --muted-foreground: #2F4A2B;
+  --accent: #E7A83A;
+  --accent-foreground: #182016;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: #21371F;
+  --input: #21371F;
+  --ring: #6E9E4A;
+  --chart-1: #6E9E4A;
+  --chart-2: #E7A83A;
+  --chart-3: #2F4A2B;
+  --chart-4: #21371F;
+  --chart-5: #F3EBD8;
+  --sidebar: #21371F;
+  --sidebar-foreground: #F3EBD8;
+  --sidebar-primary: #6E9E4A;
+  --sidebar-primary-foreground: #F3EBD8;
+  --sidebar-accent: #2F4A2B;
+  --sidebar-accent-foreground: #F3EBD8;
+  --sidebar-border: #F3EBD8;
+  --sidebar-ring: #6E9E4A;
+
+  --cream: #F3EBD8;
+  --cream-soft: #EFE5CE;
+  --moss: #2F4A2B;
+  --pine: #21371F;
+  --lawn: #6E9E4A;
+  --amber: #E7A83A;
+  --ink: #182016;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Utility classes for the Y2K Neat Lawn direction */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .bg-gloss {
+    background: linear-gradient(180deg, #7FB251 0%, #5E9140 52%, #4C7A33 100%);
+  }
+
+  .bg-gloss-amber {
+    background: linear-gradient(180deg, #F4C777 0%, #E7A83A 55%, #CF8F26 100%);
+  }
+
+  .bg-card-gloss {
+    background: linear-gradient(180deg, #FBF7EC 0%, #F3EBD8 100%);
+  }
+
+  .text-chrome {
+    background: linear-gradient(178deg, #F7FAF0 0%, #C6D9B4 34%, #86AC5E 50%, #C6D9B4 64%, #F7FAF0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gloss-top {
+    position: relative;
+  }
+
+  .gloss-top::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 42%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.08s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.16s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.24s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.32s;
+}
